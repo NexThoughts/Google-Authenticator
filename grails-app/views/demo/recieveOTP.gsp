@@ -1,7 +1,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up Form</title>
+    <title>Validate OTP</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/main.css">
@@ -134,73 +134,26 @@
     }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        function toggleForm(id) {
-            if (id == 0) {
-                $('#loginFormDiv').show();
-                $('#signupFormFormDiv').hide();
-            } else {
-                $('#loginFormDiv').hide();
-                $('#signupFormFormDiv').show();
-            }
-        }
-    </script>
 </head>
 
 <body>
 
-<div class="row btn-Panel">
-    <div class="col-md-6">
-        <button id="loginBtn" onclick="toggleForm(0)">Login</button>
-    </div>
-
-    <div class="col-md-6">
-        <button id="signupBtn" onclick="toggleForm(1)">Signup</button>
-    </div>
-</div>
-
 <div id="loginFormDiv" style="display: block">
-    <g:form id="loginForm" controller="user" action="doLogin">
+    <g:form id="loginForm" controller="user" action="validateLoginTwoStep">
 
         <h1>Sign In</h1>
 
         <fieldset>
-            <legend><span class="number">1</span>Enter credentials</legend>
+            <legend><span class="number">1</span>Enter TOTP From GOOGLE AUTHENTICATE APP</legend>
 
-            <label for="mail">Email:</label>
-            <input type="email" id="username" name="username">
-
-            <label for="password">Password:</label>
-            <input type="password" id="passwrd" name="password">
+            <label for="mail">TOTP:</label>
+            <input type="hidden" id="username" name="username" value="${username}">
+            <input type="text" id="totpValue" name="totpValue">
 
         </fieldset>
-        <button type="submit">Sign In</button>
+        <button type="submit">Validate</button>
     </g:form>
 </div>
 
-<div id="signupFormFormDiv" style="display: none">
-    <g:form id="signupForm" controller="user" action="registerUser">
-
-        <h1>Sign Up</h1>
-
-        <fieldset>
-            <legend>Your basic info</legend>
-
-            <label for="mail">Email:</label>
-            <input type="email" id="mail" name="username">
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password">
-
-            <label for="confirm-password">Confirm Password:</label>
-            <input type="password" id="confirmPassword" name="confirmPassword">
-
-            <label for="mobile">Mobile Number:</label>
-            <input type="text" id="mobile" name="mobileNumber">
-
-        </fieldset>
-        <button type="submit">Sign Up</button>
-    </g:form>
-</div>
 </body>
 </html>

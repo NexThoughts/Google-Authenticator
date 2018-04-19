@@ -9,6 +9,7 @@ package com.fintech.util;
  */
 public class TwoFactorAuthExample {
 
+
     public static void main(String[] args) throws Exception {
 
         // String base32Secret = twoFactorAuthUtil.generateBase32Secret();

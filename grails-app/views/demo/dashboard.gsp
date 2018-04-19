@@ -145,6 +145,11 @@ HELLO, ${username}
     <img src="" id="qrImgSrc"/>
 </div>
 
+<div class="row">
+    <div class="col-lg-4"><g:link controller="user" action="logout" class="btn btn-danger">LogOut</g:link> </div>
+    <div class="col-lg-4"></div>
+</div>
+
 <script>
     function generateQRCodeForUser(username) {
         $.ajax({
